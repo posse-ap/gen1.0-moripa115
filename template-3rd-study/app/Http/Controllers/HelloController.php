@@ -9,7 +9,8 @@ class HelloController extends Controller
 {
     public function index(Request $request)
     {
-       return view('hello.inddex', ['data'=>$request->data]);
+       $items = DB::select('select * from people');
+       return view('hello.inddex', ['items'=>$items]);
     }
 
 }

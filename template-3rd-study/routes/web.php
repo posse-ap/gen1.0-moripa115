@@ -16,3 +16,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/kuiz', 'KuizyController@index');
+
+Route::get('/kuiz/1', 'KuizyController@kuiz1');
+
+Route::get('/kuiz/2', 'KuizyController@kuiz2');
