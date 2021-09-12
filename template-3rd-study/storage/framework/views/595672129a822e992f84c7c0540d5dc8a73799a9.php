@@ -1,0 +1,1 @@
+<?php /**PATH /work/backend/resources/views/kuizyTokyo.blade.php ENDPATH**/ ?>

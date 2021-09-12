@@ -1,0 +1,1 @@
+<?php /**PATH /work/backend/resources/views/kuizyHiroshima.blade.php ENDPATH**/ ?>
