@@ -44,13 +44,7 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
-        $role_id = Auth::user()->role_id;
-
-        if ($role_id === Role::getAdminId() || $role_id === Role::getDeliveryAgentId()) {
-            return '/delivery-list';
-        } else {
-            return '/';
-        }
+        return '/home';
     }
 
     protected function loggedOut(Request $request)
