@@ -10,7 +10,6 @@
   <div>
     @foreach ($blogs as $blog)
         <a href="/news/{{ $blog->id }}">{{ $blog->title }}<br></a>
-
     @endforeach
 </div>
   
