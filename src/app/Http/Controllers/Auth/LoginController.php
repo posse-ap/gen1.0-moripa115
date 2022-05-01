@@ -34,21 +34,21 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function validateLogin(Request $request)
-    {
-        $request->validate([
-            $this->username() => 'required|string|email',
-            'password'        => 'required|string',
-        ]);
-    }
+    // protected function validateLogin(Request $request)
+    // {
+    //     $request->validate([
+    //         $this->username() => 'required|string|email',
+    //         'password'        => 'required|string',
+    //     ]);
+    // }
 
     protected function redirectTo()
     {
         return '/home';
     }
 
-    protected function loggedOut(Request $request)
-    {
-        return redirect()->route('login');
-    }
+    // protected function loggedOut(Request $request)
+    // {
+    //     return redirect()->route('login');
+    // }
 }
