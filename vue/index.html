@@ -10,13 +10,19 @@
 <body>
   <div id="app">
     {{ number }}
+    <button v-on:click="conntUp">カウントアップ</button>
   </div>
-  
+
   <script>
     new Vue({
       el:"#app",
       data:{
-        number:0,
+        number:0
+      },
+      methods:{
+        conntUp:function(){
+          alert('test')
+        },
       }
     })
   </script>
