@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,55 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
+
 <body>
+  <style>
+    .red {
+      color: red
+    }
+
+    .green {
+      color: green
+    }
+
+    .blue {
+      color: blue
+    }
+  </style>
   <div id="app">
     {{ number }}
-    <button v-on:click="conntUp">カウントアップ</button>
-  </div>
+    <button @click="conntUp">カウントアップ</button>
+    <div v-text="number"></div>
+    <div v-if="number">trueなので表示したよ！
+    </div>
+    <ul>
+      <li v-for="item in items">{{item}}</li>
+    </ul>
+    <div :class="color">カラー</div>
+    <input type="text" v-model="color">
+    {{custom_color}}
 
+  </div>
   <script>
     new Vue({
-      el:"#app",
-      data:{
-        number:0
+      el: "#app",
+      data: {
+        number: 0,
+        items: [1, 2, 3],
+        color: ''
       },
-      methods:{
-        conntUp:function(){
-          alert('test')
-        },
+      methods: {
+        conntUp: function () {
+          this.number = this.number + 1
+        }
+      },
+      computed: {
+        custom_color: function () {
+          return this.color.toUpperCase();
+        }
       }
     })
   </script>
 </body>
+
 </html>
