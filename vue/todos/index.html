@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <h1>Todo List</h1>
+  <div id="todo">
+    <form action="" v-on:submit.prevent="addItem">
+      <input type="text" v-model="newItem">
+      <button>追加</button>
+    </form>
+    <div v-for="(todo, index) in todos">
+      <input type="checkbox">
+      {{todo}}
+      <button v-on:click="deleteItem(index)">削除</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: "#todo",
+    data: {
+      todos: ["お風呂に入る", "友達と遊ぶ"],
+      newItem: ''
+    },
+    methods: {
+      addItem: function () {
+        if (newItem = '') {
+          alert("入力されていません。")
+        } else {
+          this.todos.push(this.newItem);
+          this.newItem = '';
+        };
+      },
+      deleteItem: function (index) {
+        if (confirm('are you sure?')) {
+          this.todos.splice(index, 1)
+        };
+      }
+    }
+  })
+</script>
+
+</html>

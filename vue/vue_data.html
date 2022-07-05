@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div>
+    <div v-for="post in posts">
+      <p>{{post.title}}</p>
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+
+  <script>
+    export default {
+      data() {
+        return {
+          posts: [],
+        };
+      },
+      created() {
+        this.test();
+      },
+      methods: {
+        test: function () {
+          axios
+            .get("/test")
+            .then((res) => {
+              console.log(res);
+              this.posts = res.data.posts;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+      },
+    };
+  </script>
+</body>
+
+</html>
